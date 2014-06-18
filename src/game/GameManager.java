@@ -2,6 +2,7 @@ package game;
 
 import game.entity.EntityManager;
 import game.network.NetworkHandler;
+import game.world.World;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
@@ -11,9 +12,11 @@ public class GameManager {
     
     public NetworkHandler network;
     public EntityManager e;
+    public World map;
     
     public GameManager() {
         e = new EntityManager();
+        map = new World(10,8);
     }
     
     public void init(GameContainer container) {
@@ -26,6 +29,7 @@ public class GameManager {
     }
     
     public void render(GameContainer container, Graphics g) {
+        map.render(g);
         e.render(g);
     }
 }
