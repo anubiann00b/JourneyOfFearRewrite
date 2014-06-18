@@ -14,6 +14,7 @@ public class StatePlaying extends BasicGameState {
     
     public StatePlaying(int id) {
         this.id = id;
+        gameManager = new GameManager();
     }
     
     @Override

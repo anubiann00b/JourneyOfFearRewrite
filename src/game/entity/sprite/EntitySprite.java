@@ -17,6 +17,7 @@ public class EntitySprite {
         System.arraycopy(dirs,0,images,0,4);
         frames = dirs[0].length;
         speed = newSpeed;
+        counter = speed;
     }
     
     public void render(Graphics g, int dir, int x, int y) {
@@ -24,9 +25,12 @@ public class EntitySprite {
         
         if (counter <= 0) {
             counter = speed;
-            frame = frame < frames ? frames+1 : 0;
+            
+            if (frame == frames-1)
+                frame = 0;
+            else
+                frame++;
         }
-        
         g.drawImage(images[dir][frame],x,y);
     }
 }

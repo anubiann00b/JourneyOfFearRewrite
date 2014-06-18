@@ -1,8 +1,8 @@
 package game.entity;
 
 import game.entity.sprite.EntitySprite;
+import game.resource.ImageLibrary;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 
 public class Player extends Entity {
@@ -12,10 +12,10 @@ public class Player extends Entity {
     public Player(int nx, int ny) {
         super(nx,ny);
         sprite = new EntitySprite(4,166,
-            new Image[] {},
-            new Image[] {},
-            new Image[] {},
-            new Image[] {}
+            ImageLibrary.PLAYER_RIGHT.getAsSheet(),
+            ImageLibrary.PLAYER_DOWN.getAsSheet(),
+            ImageLibrary.PLAYER_LEFT.getAsSheet(),
+            ImageLibrary.PLAYER_UP.getAsSheet()
         );
     }
     
@@ -26,6 +26,6 @@ public class Player extends Entity {
 
     @Override
     public void render(Graphics g) {
-        
+        super.render(g);
     }
 }
