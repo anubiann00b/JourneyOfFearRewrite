@@ -15,7 +15,7 @@ public class Game extends StateBasedGame {
     public static final int VIEW_SIZE_Y = 512;
     
     public Game() {
-        super("Realm of the Ancients");
+        super("Journey of Fear");
     }
     
     public static void main(String[] args) {
