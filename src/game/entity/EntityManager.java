@@ -1,5 +1,6 @@
 package game.entity;
 
+import game.entity.player.Player;
 import java.util.ArrayList;
 import java.util.List;
 import org.newdawn.slick.Graphics;
@@ -18,6 +19,7 @@ public class EntityManager {
     
     public void init(Input input) {
         player = new Player(0,0);
+        player.input = input;
     }
     
     public void update() {

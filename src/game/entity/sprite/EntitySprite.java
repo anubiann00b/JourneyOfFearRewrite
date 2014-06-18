@@ -11,6 +11,7 @@ public class EntitySprite {
     public int frame;
     public int counter;
     public int frames;
+    public boolean stopped;
     
     public EntitySprite(int animFrames, int newSpeed, Image[]... dirs) {
         images = new Image[4][animFrames];
@@ -18,10 +19,13 @@ public class EntitySprite {
         frames = dirs[0].length;
         speed = newSpeed;
         counter = speed;
+        stopped = false;
     }
     
     public void render(Graphics g, int dir, int x, int y) {
-        counter -= GameManager.delta;
+        
+        if (!stopped)
+            counter -= GameManager.delta;
         
         if (counter <= 0) {
             counter = speed;
@@ -32,5 +36,13 @@ public class EntitySprite {
                 frame++;
         }
         g.drawImage(images[dir][frame],x,y);
+    }
+
+    public void stop() {
+        stopped = true;
+    }
+
+    public void start() {
+        stopped = false;
     }
 }
